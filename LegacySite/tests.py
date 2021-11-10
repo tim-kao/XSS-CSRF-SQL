@@ -6,8 +6,13 @@ from django.db import connection
 c = Client()
 
 # Sample check that you can access website
-response = c.get("/gift/")
+# login
+response = c.post("/login/", {'uname': 'sk4920', 'pword':' sk4920'})
 assert(response.status_code == 200)
+# buy a gift card
+response
+#print(response)
+print("SDF")
 
 # 1- Write the test confirming XSS vulnerability is fixed
 
