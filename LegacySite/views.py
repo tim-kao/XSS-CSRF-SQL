@@ -194,7 +194,6 @@ def use_card_view(request):
         # KG: data seems dangerous.
         signature = json.loads(card_data)['records'][0]['signature']
         # signatures should be pretty unique, right?
-        chk = 'select id from LegacySite_card where data = \'%s\'' % signature
         card_query = Card.objects.raw('select id from LegacySite_card where data = \'%s\'' % signature)
         user_cards = Card.objects.raw(
             'select id, count(*) as count from LegacySite_card where LegacySite_card.user_id = %s' % str(
@@ -203,20 +202,20 @@ def use_card_view(request):
         for thing in card_query:
             # print cards as strings
             card_query_string += str(thing) + '\n'
-        if len(card_query) is 0:
+        if len(card_query) == 0:
             # card not known, add it.
             if card_fname is not None:
                 card_file_path = f'/tmp/{card_fname}_{request.user.id}_{user_cards[0].count + 1}.gftcrd'
             else:
                 card_file_path = f'/tmp/newcard_{request.user.id}_{user_cards[0].count + 1}.gftcrd'
-            fp = open(card_file_path, 'w')
-            fp.write(card_data)
-            fp.close()
+            with open(card_file_path, 'w') as fp:
+                fp.write(card_data)
+
             card = Card(data=card_data, fp=card_file_path, user=request.user, used=True)
         else:
             context['card_found'] = card_query_string
             try:
-                card = Card.objects.get(data=card_data)
+                card = Card.objects.get(data=bytes(card_data, 'utf-8'))
                 card.used = True
             except ObjectDoesNotExist:
                 card = None
