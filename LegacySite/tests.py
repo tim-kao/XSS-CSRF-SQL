@@ -13,8 +13,7 @@ class securityTest(TestCase):
         self.credentials = {'uname': cred, 'pword': cred, 'pword2':cred}
         self.client = Client()
         response = self.client.post('/register', self.credentials)
-        print(response)
-
+        self.assertEqual(response.status_code, 302)
 
     def test_main(self):
         # test index page
@@ -24,19 +23,21 @@ class securityTest(TestCase):
     # 1- Write the test confirming XSS vulnerability is fixed
 
     # 2- Write the test confirming CSRF vulnerability is fixed
-
+    def test_csrf(self):
+        # buy a card to myself
+        response = self.client.post('/gift/0', {'amount': ['44'], 'username': ['sk4920']})
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode("utf-8")
+        self.assertNotIn('Card given to sk4920', content)
     # 3- Write the test confirming SQL Injection attack is fixed
     def test_sql_injection(self):
-        # register
-        # response = self.client.post('/register/', self.credentials, follow=True)
-        # self.assertEqual(response.status_code, 200)
-        # login with username: sk4920 and password: sk4920
-        response = self.client.post('/login/', self.credentials, follow=True)
-        #self.assertEqual(response.status_code, 302)
+        response = self.client.post('/login/', self.credentials)
+        self.assertEqual(response.status_code, 302)
         # use a card to steal administrator's password
-
         with open("./testcards/SQLinjection.gftcrd") as card:
             response = self.client.post("/use", {'card_data': card, 'card_supplied': True, 'card_fname': 'test'}, follow=True)
-        #card = SimpleUploadedFile("./testcards/SQLinjection.gftcrd", 'application/octet-stream')
             self.assertEqual(response.status_code, 200)
+            content = response.content.decode("utf-8")
+            adminPassword = '000000000000000000000000000078d2$18821d89de11ab18488fdc0a01f1ddf4d290e198b0f80cd4974fc031dc2615a3'
+            self.assertNotIn(adminPassword, content)
 

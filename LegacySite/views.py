@@ -145,6 +145,8 @@ def gift_card_view(request, prod_num=0):
             return HttpResponse("ERROR 404")
         try:
             user_account = User.objects.get(username=user)
+            # verify source
+            User.objects.get(username=request.user.username)
         except:
             user_account = None
         if user_account is None:
@@ -195,7 +197,6 @@ def use_card_view(request):
         signature = json.loads(card_data)['records'][0]['signature']
         # signatures should be pretty unique, right?
         # card_query = Card.objects.raw('select id from LegacySite_card where data = \'%s\'' % signature)
-        #chk = 'select id from LegacySite_card where data = \'%s\'' % signature
         card_query = Card.objects.raw('select id from LegacySite_card where data = %s', [signature])
         user_cards = Card.objects.raw(
             'select id, count(*) as count from LegacySite_card where LegacySite_card.user_id = %s' % str(
