@@ -1,0 +1,7 @@
+
+
+One attack, that exploits a XSS (cross-site scripting) vulnerability.
+One attack that allows you to force another user to gift a gift card to your account without their knowledge.
+One attack that allows you to obtain the salted password for a user given their username. The database should contain a user named ``admin.''
+A text file, bugs.txt explaining the bug triggered by each of your attacks, and describing any other vulnerabilities or broken functionalities you came across. There are more than the bugs mentioned above.
+
