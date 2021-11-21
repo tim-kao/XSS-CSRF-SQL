@@ -1,11 +1,10 @@
-language:
-  python
+language: python
 python:
   - "3.9.7"
 install:
   - pip3 install -r requirements.txt
-  - python manage.py migrate
 script:
-  - python manage.py test
+  - coverage run manage.py test --keepdb
+  - coverage report -m
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - coveralls
