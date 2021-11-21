@@ -1,3 +1,6 @@
+[![Build Status](https://app.travis-ci.com/tim-kao/XSS-CSRF-SQL.svg?token=ugushSw6EMcSvzjyShsw&branch=main)](https://app.travis-ci.com/tim-kao/XSS-CSRF-SQL)
+[![codecov](https://codecov.io/gh/tim-kao/XSS-CSRF-SQL/branch/main/graph/badge.svg?token=I0XKB4EJFW)](https://codecov.io/gh/tim-kao/XSS-CSRF-SQL)
+
 # Homework 3: Buggiest Web Application
 
 ## Introduction

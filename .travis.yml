@@ -9,5 +9,6 @@ install:
 script:
   - coverage run manage.py test --keepdb
   - coverage report -m
+  - coverage xml
 after_success:
   - bash <(curl -s https://codecov.io/bash)
