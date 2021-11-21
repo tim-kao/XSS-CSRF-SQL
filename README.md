@@ -1,6 +1,5 @@
 [![Build Status](https://app.travis-ci.com/tim-kao/XSS-CSRF-SQL.svg?token=ugushSw6EMcSvzjyShsw&branch=main)](https://app.travis-ci.com/tim-kao/XSS-CSRF-SQL)
-[![codecov](https://codecov.io/gh/tim-kao/XSS-CSRF-SQL/branch/main/graph/badge.svg?token=I0XKB4EJFW)](https://codecov.io/gh/tim-kao/XSS-CSRF-SQL)
-[![Coverage Status](https://coveralls.io/repos/github/tim-kao/XSS-CSRF-SQL/badge.svg?t=Wbbdlm)](https://coveralls.io/github/tim-kao/XSS-CSRF-SQL)
+[![Coverage Status](https://coveralls.io/repos/github/tim-kao/XSS-CSRF-SQL/badge.svg?branch=main&t=Wbbdlm)](https://coveralls.io/github/tim-kao/XSS-CSRF-SQL?branch=main)
 # Homework 3: Buggiest Web Application
 
 ## Introduction
