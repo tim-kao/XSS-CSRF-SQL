@@ -17,7 +17,6 @@ class securityTest(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_main(self):
-        # test index page
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
 
