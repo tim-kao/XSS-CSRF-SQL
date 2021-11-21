@@ -7,7 +7,7 @@ before_install:
 install:
   - pip3 install -r requirements.txt
 script:
-  - coverage run manage.py test --keepdb
+  - coverage run manage.py test
   - coverage report -m
   - coverage html
 

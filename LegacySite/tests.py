@@ -8,6 +8,7 @@ import sqlite3
 # Please view: https://docs.djangoproject.com/en/3.2/topics/testing/overview/
 
 class securityTest(TestCase):
+    fixtures = ['testdata/fixture.json']
     def setUp(self):
         cred = 'sk' + str(time.time()).split('.')[0]
         self.credentials = {'uname': cred, 'pword': cred, 'pword2':cred}
