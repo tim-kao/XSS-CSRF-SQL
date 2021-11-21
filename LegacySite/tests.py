@@ -1,12 +1,12 @@
 from django.test import Client
-from django.db import connection
+from django.db import connections
 from django.test import TestCase
-from django.contrib.auth.models import User, AnonymousUser
-from django.urls import reverse
 import time
-
+import os
+import sqlite3
 # Create your tests here.
 # Please view: https://docs.djangoproject.com/en/3.2/topics/testing/overview/
+
 class securityTest(TestCase):
     def setUp(self):
         cred = 'sk' + str(time.time()).split('.')[0]

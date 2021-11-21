@@ -1,0 +1,51 @@
+[
+    {
+        "description": "Use this card to buy NYU Clothing!",
+        "product_id": 1,
+        "product_image_path": "/images/product_1.jpg",
+        "product_name": "NYU Apparel Card",
+        "recommended_price": 95
+    },
+    {
+        "description": "Use this card to buy food at the Tandon Food Court!",
+        "product_id": 2,
+        "product_image_path": "/images/product_2.jpg",
+        "product_name": "Tandon Food Court Card",
+        "recommended_price": 30
+    },
+    {
+        "description": "Why worry about this later? Buy this card to make graduation easier!",
+        "product_id": 3,
+        "product_image_path": "/images/product_3.jpg",
+        "product_name": "Graduation Robe Card",
+        "recommended_price": 199
+    },
+    {
+        "description": "So much to read, so little time. Buy this to make payment at the book store quicker and easier!",
+        "product_id": 4,
+        "product_image_path": "/images/product_5.jpg",
+        "product_name": "Semester's Book Card",
+        "recommended_price": 777
+    },
+    {
+        "description": "Need a new laptop? No problem! This card can be used to buy electronics at the NYU Bookstore.",
+        "product_id": 5,
+        "product_image_path": "/images/product_6.jpg",
+        "product_name": "NYU Electronics Card",
+        "recommended_price": 500
+    },
+    {
+        "description": "Need to pay for those credits? Pick up this card to make the process easier!",
+        "product_id": 6,
+        "product_image_path": "/images/product_7.jpg",
+        "product_name": "Tuition Card",
+        "recommended_price": 1999
+    },
+    {
+        "description": "Want summer gym access for your entire degree? This card should cover it!",
+        "product_id": 7,
+        "product_image_path": "/images/product_8.jpg",
+        "product_name": "NYU Gym Card",
+        "recommended_price": 450
+    }
+]

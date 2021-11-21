@@ -1,21 +1,15 @@
-
-
-One attack, that exploits a XSS (cross-site scripting) vulnerability.
-One attack that allows you to force another user to gift a gift card to your account without their knowledge.
-One attack that allows you to obtain the salted password for a user given their username. The database should contain a user named ``admin.''
-A text file, bugs.txt explaining the bug triggered by each of your attacks, and describing any other vulnerabilities or broken functionalities you came across. There are more than the bugs mentioned above.
-
+# shuoting Kao
 # run the testing
 python3 manage.py test  --keepdb
 
 # XSS
 The cross-site scripting essentially executes the embedded malicious script in the request, and the victim unexpectedly runs it.
-In item-single.html, line 62 misuses a safe filter so that it allows variable director executable.
+In item-single.html, line 62 misuses a safe filter such that it allows variable director executable through javaScript.
 To avoid the issue, we must understand director is unsafe, so we simply remove it and go back to escape data.
 from
     <p>Endorsed by {{director|safe}}!</p>
 to
-    <p>Endorsed by {{director|safe}}!</p>
+    <p>Endorsed by {{director}}!</p>
 
 # CSRF
 The original design allows anonymous to gift money to anyone, including himself or herself.
@@ -24,13 +18,10 @@ if the exception happens, then the source is not verified, and we should reject 
 On the other hand, if the source is verified, we can proceed with the gifting procedure and even deduct its account.
 
 # SQL inject:
-The code allows raw SQL directly passing into the database, and steal the administrator's password by union.
+The code allows raw SQL directly passing into the database, and steal the administrator's password
+through "signature": "' union select password from LegacySite_user where username='admin';-- %" in the card.
 In order to fix the issue, I use parameterized queries again the attack.
 from
     card_query = Card.objects.raw('select id from LegacySite_card where data = \'%s\'' % signature)
 to
     card_query = Card.objects.raw('select id from LegacySite_card where data = %s', [signature])
-
-# two reference here
-https://stackoverflow.com/questions/24753605/django-if-using-raw-sql-what-steps-should-i-take-to-avoid-sql-injection-attacks
-https://realpython.com/prevent-python-sql-injection/#crafting-safe-query-parameters

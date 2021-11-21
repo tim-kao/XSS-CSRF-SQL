@@ -1,0 +1,34 @@
+[
+    {
+        "name": "django_migrations",
+        "seq": 19
+    },
+    {
+        "name": "django_admin_log",
+        "seq": 0
+    },
+    {
+        "name": "django_content_type",
+        "seq": 9
+    },
+    {
+        "name": "auth_permission",
+        "seq": 36
+    },
+    {
+        "name": "auth_group",
+        "seq": 0
+    },
+    {
+        "name": "auth_user",
+        "seq": 0
+    },
+    {
+        "name": "LegacySite_product",
+        "seq": 7
+    },
+    {
+        "name": "LegacySite_user",
+        "seq": 6
+    }
+]
