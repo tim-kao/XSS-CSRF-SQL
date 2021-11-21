@@ -10,7 +10,7 @@ write another program. But after all, your company insists, their *real*
 strength is websites, and this time they were hired to create a high 
 quality website. As usual, they did not live up to that promise, and
 are not answering calls or emails yet again. Just like last time, the
-task of cleaning up their mess falls to you.
+task of cleaning up their mess falls to you. 
 
 The project Shoddycorp's Cut-Rate Contracting was hired to create a 
 website that facilitated the sale, gifting, and use of gift cards.
