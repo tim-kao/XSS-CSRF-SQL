@@ -21,6 +21,12 @@ class securityTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     # 1- Write the test confirming XSS vulnerability is fixed
+    def test_xss(self):
+        embedInfo = "<script>alert('XSS');</script>"
+        response = self.client.get('/buy', {'director': embedInfo})
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode("utf-8")
+        self.assertIn("&lt;script&gt;alert(&#x27;XSS&#x27;);&lt;/script&gt;", content)
 
     # 2- Write the test confirming CSRF vulnerability is fixed
     def test_csrf(self):

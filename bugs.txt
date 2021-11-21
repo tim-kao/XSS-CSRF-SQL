@@ -9,7 +9,13 @@ A text file, bugs.txt explaining the bug triggered by each of your attacks, and 
 python3 manage.py test  --keepdb
 
 # XSS
-
+The cross-site scripting essentially executes the embedded malicious script in the request, and the victim unexpectedly runs it.
+In item-single.html, line 62 misuses a safe filter so that it allows variable director executable.
+To avoid the issue, we must understand director is unsafe, so we simply remove it and go back to escape data.
+from
+    <p>Endorsed by {{director|safe}}!</p>
+to
+    <p>Endorsed by {{director|safe}}!</p>
 
 # CSRF
 The original design allows anonymous to gift money to anyone, including himself or herself.
