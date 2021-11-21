@@ -10,6 +10,8 @@ script:
   - coverage run manage.py test --keepdb
   - coverage report -m
   - coverage html
+  - curl -Os https://uploader.codecov.io/latest/macos/codecov
+  - chmod +x codecov
   - ./codecov -t 9dae9e26-8a75-4ee0-acaa-49e4e4ec5d03
 after_success:
   - bash <(curl -s https://codecov.io/bash)
