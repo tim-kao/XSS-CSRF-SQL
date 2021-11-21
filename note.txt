@@ -1,3 +1,0 @@
-
-codecov
-https://docs.codecov.com/docs/codecov-uploader
