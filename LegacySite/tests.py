@@ -30,11 +30,17 @@ class securityTest(TestCase):
 
     # 2- Write the test confirming CSRF vulnerability is fixed
     def test_csrf(self):
-        # buy a card to myself
-        response = self.client.post('/gift/0', {'amount': ['44'], 'username': ['sk4920']})
-        self.assertEqual(response.status_code, 200)
-        content = response.content.decode("utf-8")
-        self.assertNotIn('Card given to sk4920', content)
+        # create an attacker client
+        client_csrf_chk = Client(enforce_csrf_checks=True)
+        # victim login
+        response = self.client.post('/login/', self.credentials)
+        self.assertEqual(response.status_code, 302)
+        # attacker buys a card to myself
+        response_csrf = client_csrf_chk.post('/gift/0', {'amount': ['9999'], 'username': ['sk4920']})
+        self.assertEqual(response_csrf.status_code, 403)
+        content = response_csrf.content.decode("utf-8")
+        self.assertIn('CSRF verification failed. Request aborted.', content)
+
     # 3- Write the test confirming SQL Injection attack is fixed
     def test_sql_injection(self):
         response = self.client.post('/login/', self.credentials)

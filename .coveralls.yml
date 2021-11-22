@@ -1,2 +1,4 @@
 repo_token: iofGocVqgqsrMq3b4DsexKVXoVTnWQ1Z2
 gem 'coveralls', require: false
+service_name: travis-pro
+parallel: true # if the CI is running your build in parallel

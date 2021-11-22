@@ -116,7 +116,7 @@ def buy_card_view(request, prod_num=0):
 
 # KG: What stops an attacker from making me buy a card for him?
 def gift_card_view(request, prod_num=0):
-    context = {"prod_num": prod_num}
+    context = {"prod_num": prod_num} # {% csrf_token %}
     if request.method == "GET":
         context['user'] = None
         director = request.GET.get('director', None)
@@ -145,8 +145,6 @@ def gift_card_view(request, prod_num=0):
             return HttpResponse("ERROR 404")
         try:
             user_account = User.objects.get(username=user)
-            # verify source
-            User.objects.get(username=request.user.username)
         except:
             user_account = None
         if user_account is None:

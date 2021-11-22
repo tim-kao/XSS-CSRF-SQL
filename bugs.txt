@@ -12,9 +12,13 @@ to
 
 # CSRF
 The original design allows anonymous to gift money to anyone, including themselves.
-My solution is to verify the login information through checking User.objects.get(username=request.user.username)
-if the exception happens, then the source is not verified, and we should reject the request.
-On the other hand, if the source is verified, we can proceed with the gifting procedure and even deduct its account.
+We can use CSRF middleware to protect this vulnerability
+
+To fix the issue,
+1. add 'django.middleware.csrf.CsrfViewMiddleware' into settings.py
+2. In gift.html, put {% csrf_token %} at line 78 in side form element. <form action="/gift/{{ prod_num }}" method="post"> {% csrf_token %}
+
+Now, if the same operation is applied, then the web would shows Forbidden (403) CSRF verification failed. Request aborted.
 
 # SQL inject:
 The code allows raw SQL directly passing into the database, and steal the administrator's password
