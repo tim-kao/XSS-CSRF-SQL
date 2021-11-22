@@ -1,14 +1,37 @@
------BEGIN PGP SIGNATURE-----
+這把 OpenPGP 金鑰有一份撤銷憑證.
 
-iQGzBAABCAAdFiEEIPu2rc4yph8V9YZpgd8YE/zxkCIFAmGaqRQACgkQgd8YE/zx
-kCKkngv+N+voFDk9kEnF34KPHMVqly0zq6Vkp0Q2ZVUyqKhENJhlun03zbSU+b3r
-VKzwq07iaW4beDTUC0qEo3X6wV3NdQXPoDTBSARh4ZwWHx2p7sEjfsFZ0fxJcdpn
-QLo+tLz+njHxzYSaAercjTPmq+J0xLiiMVo91jDRUVkdRgkVyKl/DBzvhyjXEndb
-XgBgYYDMAUuoU41Gdj4R4XIGukpzEixS+/C/ducT9/5nRBBkNK+DuUtz9/m4lZtO
-5TXo2DSZU36X4DKLkAfUS+BxKwYGaXhB64roBCKaC3NQNDAwSBE50aL1JMYUkK2X
-PCQFqKwPwS/CzA7UtVgJ6SfkQf8artdK5WcIJwgu/qxKrgS8mDmfXGBajwcg8XKg
-Za2Xq6bFCYvVSBaYHPcAGPDNwBJwbgzjgYajjKg1nHj2uSU9QfRboLS0qsEC9EId
-9DvLBZuWgdybFAqrI/RQrGCtKsROZCI6h1Usqvhl02lsKlXp48/+pyvWuKDpJ6MB
-5NL4wX9t
-=k3tI
------END PGP SIGNATURE-----
+pub   rsa4096 2021-11-22 [S] [到期: 2022-03-02]
+      DDE9BF0918257E7270740EE3184F0DD41051BEBD
+uid          tim kao (github) <sk4920@columbia.edu>
+
+A revocation certificate is a kind of "kill switch" to publicly
+declare that a key shall not anymore be used.  It is not possible
+to retract such a revocation certificate once it has been published.
+
+Use it to revoke this key in case of a compromise or loss of
+the secret key.  However, if the secret key is still accessible,
+it is better to generate a new revocation certificate and give
+a reason for the revocation.  For details see the description of
+of the gpg command "--generate-revocation" in the GnuPG manual.
+
+To avoid an accidental use of this file, a colon has been inserted
+before the 5 dashes below.  Remove this colon with a text editor
+before importing and publishing this revocation certificate.
+
+:-----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: This is a revocation certificate
+
+iQI2BCABCAAgFiEE3em/CRglfnJwdA7jGE8N1BBRvr0FAmGbAY0CHQAACgkQGE8N
+1BBRvr3deA/9HRiYSBiZ35IIxoP1NnDefS7ahGvmpLTk1U4NMpNHB0Y3SY2jG9YP
+LlvpvLQs1/g9QygIOtfN1GRjMeU5bOza48nab2vtR9VgH0A4Eq38Zv5oZY6MhLkc
+O0wsxsVo9lNdAqsJSvea19kS8htabijjLAawO512eeWnaUlcAdorVwf2DkXFrnNX
+PgIfLjiaSTdl7aQeWMM5pi3BNjWpIsGegYNzNjChZgUsGHLAGKdw4L1z336sKB57
+thsUerJ4iEhRnstjaS5ui1sxbYeWkb2bv7Q6sTlSUMeR6AWFKxTQCVbtpiVehFUl
+dtyuHL2I6Ku5BU3X7yE8EX9qn67w3ynR+6V2MDH5/YAXieuTayrakPnflLmHvIaZ
+RUrcr35/5yV+8QZT3kkCVFRlfrkUxf3QMK719ffzWTPWRLShFZ+Xs+/iRF9cIib3
+E7F2nuHQ0Vh+r88ol30NGFv4+IEZexoUIF4CKJzFe9q5RDQ2yNF6g7894MAGsgrY
+VQtJlBDbYaahw9d3B0EVo/IPjNKcC+98EAkB3Dfb4Rn9EVBMqxUy4KAR5j1a5eu0
+Fkgef2O5rYvOnOQUK8q11shddTvtfE56cndPiSHHCjj45Ww3GF+vOQbHuMzz/LxE
+FxWGdWecithquTD7PpwvVrk2pChujkpws66OFlpgJFavJblHb5Yzvzk=
+=AJV5
+-----END PGP PUBLIC KEY BLOCK-----
