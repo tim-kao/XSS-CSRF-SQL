@@ -12,7 +12,7 @@ to
 
 # CSRF
 The original design allows anonymous to gift money to anyone, including themselves.
-We can use CSRF middleware to protect this vulnerability
+We can use CSRF middleware to protect against this vulnerability.
 
 To fix the issue,
 1. add 'django.middleware.csrf.CsrfViewMiddleware' into settings.py
